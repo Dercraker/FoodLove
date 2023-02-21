@@ -7,7 +7,7 @@
     tools:context=".Activity.ShowDetailActivity">
 
     <ScrollView
-        android:id="@+id/scrollView3"
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -21,7 +21,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="60dp"
-                android:text="Title"
+                android:text="title"
                 android:textAlignment="center"
                 android:textColor="#373b54"
                 android:textSize="24sp"
@@ -31,13 +31,15 @@
                 android:id="@+id/priceTxt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="€"
+                android:text="$"
                 android:textAlignment="center"
                 android:textColor="#ff5e00"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+
+                />
 
             <ImageView
-                android:id="@+id/imageView6"
+                android:id="@+id/picFood"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:srcCompat="@drawable/pizza" />
@@ -71,15 +73,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:srcCompat="@drawable/plus" />
-
             </LinearLayout>
 
             <TextView
-                android:id="@+id/descTxt"
+                android:id="@+id/descriptionTxt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
-                android:layout_weight="1"
                 android:text="description"
                 android:textColor="#686767"
                 android:textSize="20sp"
@@ -92,15 +92,15 @@
         android:id="@+id/addToCartBtn"
         android:layout_width="0dp"
         android:layout_height="50dp"
+        android:text="Add to Cart"
+        android:textStyle="bold"
+        android:elevation="3dp"
         android:layout_margin="16dp"
         android:background="@drawable/orange_button"
         android:gravity="center"
-        android:text="Add To Cart"
-        android:textStyle="bold"
-        android:elevation="3dp"
-        android:textColor="#fff"
         android:textSize="23sp"
-        app:layout_constraintBottom_toBottomOf="@+id/scrollView3"
+        android:textColor="#ffffff"
+        app:layout_constraintBottom_toBottomOf="@+id/scrollView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 

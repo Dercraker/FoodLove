@@ -15,10 +15,7 @@
             android:name=".ShowDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".CardListActivity"
-            android:exported="false" />
-        <activity
-            android:name=".CartListActivity"
+            android:name=".ShowdetailActivity"
             android:exported="false" />
         <activity
             android:name=".Activity.IntroActivity"
@@ -31,7 +28,7 @@
         </activity>
         <activity
             android:name=".Activity.MainActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
     </application>
 
 </manifest>
