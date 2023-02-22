@@ -73,7 +73,7 @@ private FoodDomain object;
     private void initView() {
         addToCartBtn=findViewById(R.id.addToCartBtn);
         titleTxt=findViewById(R.id.titleTxt);
-        feeTxt=findViewById(R.id.fee);
+        feeTxt=findViewById(R.id.priceTxt);
         descriptionTxt=findViewById(R.id.descriptionTxt);
         numberOrderTxt=findViewById(R.id.numberOrderTxt);
         plusBtn=findViewById(R.id.plusBtn);
