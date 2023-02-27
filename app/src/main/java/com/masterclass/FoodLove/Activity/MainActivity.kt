@@ -1,9 +1,12 @@
 package com.masterclass.FoodLove.Activity
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.masterclass.FoodLove.Adaptor.CategoryAdaptator
 import com.masterclass.FoodLove.Adaptor.PopularAdaptator
 import com.masterclass.FoodLove.Domain.CategoryDomain
@@ -21,6 +24,28 @@ class MainActivity : AppCompatActivity() {
 
         recyclerViewCategory()
         recyclerViewPopular()
+        bottomNavigation()
+    }
+
+    private fun bottomNavigation() {
+        val floatingActionButton = findViewById<FloatingActionButton>(R.id.CartBtn)
+        val homeBtn = findViewById<LinearLayout>(R.id.homeBtn)
+        floatingActionButton.setOnClickListener {
+            startActivity(
+                Intent(
+                    this,
+                    CartListActivity::class.java
+                )
+            )
+        }
+        homeBtn.setOnClickListener {
+            startActivity(
+                Intent(
+                    this,
+                    MainActivity::class.java
+                )
+            )
+        }
     }
 
     private fun recyclerViewCategory() {

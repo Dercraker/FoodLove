@@ -1,46 +1,104 @@
 package com.masterclass.FoodLove.Adaptor;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import android.os.Bundle;
-import android.widget.ScrollView;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
+import com.masterclass.FoodLove.Domain.FoodDomain;
 import com.masterclass.FoodLove.Helper.ManagementCart;
+import com.masterclass.FoodLove.Interface.ChangeNumberItemsListener;
 import com.masterclass.FoodLove.R;
 
-public class CartListActivity extends AppCompatActivity {
-    private RecyclerView.Adapter adapter;
-    private RecyclerView recyclerViewList;
+import java.util.ArrayList;
+
+public class CartListAdaper extends RecyclerView.Adapter<CartListAdaper.ViewHolder> {
+    private ArrayList<FoodDomain> foodDomains;
     private ManagementCart managementCart;
-    TextView totalFeeTxt, taxTxt,deliveryTxt,totalTxt,emptyTxt;
-    private double tax;
-    private ScrollView scrollView;
+    private ChangeNumberItemsListener changeNumberItemsListener;
+
+    public CartListAdaper(ArrayList<FoodDomain> foodDomains, Context context, ChangeNumberItemsListener changeNumberItemsListener) {
+        this.foodDomains = foodDomains;
+        this.managementCart = new ManagementCart(context);
+        this.changeNumberItemsListener = changeNumberItemsListener;
+    }
+
+    @NonNull
+    @Override
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View inflate = LayoutInflater.from(parent.getContext()).inflate(R.layout.viewholder_cart,parent,false);
+        return new ViewHolder(inflate);
+    }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_card_list);
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        holder.title.setText(foodDomains.get(position).getTitle());
+        holder.feeEachItem.setText(String.valueOf(foodDomains.get(position).getFee()));
+        holder.totalEachItem.setText(String.valueOf(Math.round((foodDomains.get(position).getNumberInCart() * foodDomains.get(position).getFee())* 100)/100));
+        holder.num.setText(String.valueOf(foodDomains.get(position).getNumberInCart()));
 
-        managementCart = new ManagementCart(this);
+        int drawableResourceId = holder.itemView.getContext().getResources().getIdentifier(foodDomains.get(position).getPic(),
+                "drawable",holder.itemView.getContext().getPackageName());
 
-        initView();
+        Glide.with(holder.itemView.getContext())
+                .load(drawableResourceId)
+                .into(holder.pic);
+
+        holder.plusItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                managementCart.plusNumberFood(foodDomains, position, new ChangeNumberItemsListener() {
+                    @Override
+                    public void changed() {
+                        notifyDataSetChanged();
+                        changeNumberItemsListener.changed();
+                    }
+                });
+            }
+        });
+
+        holder.minusItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                managementCart.minNumberFood(foodDomains, position, new ChangeNumberItemsListener() {
+                    @Override
+                    public void changed() {
+                        notifyDataSetChanged();
+                        changeNumberItemsListener.changed();
+                    }
+                });
+            }
+        });
     }
 
-    private void initView() {
-        recyclerViewList = findViewById(R.id.recyclerView);
-        totalFeeTxt=findViewById(R.id.totalFeeTxt);
-        taxTxt=findViewById(R.id.taxTxt);
-        deliveryTxt=findViewById(R.id.deliveryTxt);
-        totalTxt=findViewById(R.id.totalTxt);
-        emptyTxt=findViewById(R.id.emptyTxt);
-        scrollView=findViewById(R.id.scrollView2)
+
+
+    @Override
+    public int getItemCount() {
+        return foodDomains.size();
     }
-    private void initList(){
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
-        recyclerViewList.setLayoutManager(linearLayoutManager);
-        adapter=
+
+
+    public class ViewHolder extends RecyclerView.ViewHolder {
+        TextView title,feeEachItem;
+        ImageView pic, plusItem,minusItem;
+        TextView totalEachItem, num;
+
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
+            title = itemView.findViewById(R.id.titleTxt);
+            feeEachItem = itemView.findViewById(R.id.fee);
+            pic = itemView.findViewById(R.id.picCart);
+            totalEachItem = itemView.findViewById(R.id.totalEachItem);
+            num = itemView.findViewById(R.id.numberItemTxt);
+            plusItem =  itemView.findViewById(R.id.plusCartBtn);
+            minusItem = itemView.findViewById(R.id.minusCartBtn);
+        }
     }
 }
