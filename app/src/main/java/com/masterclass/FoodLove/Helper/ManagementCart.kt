@@ -5,7 +5,7 @@ import android.widget.Toast
 import com.masterclass.FoodLove.Domain.FoodDomain
 import com.masterclass.FoodLove.Interface.ChangeNumberItemsListener
 
-class ManagementCart(private val context: Context) {
+class ManagementCart(private val context: Context?) {
     private val tinydb: TinyDB
 
     init {

@@ -53,7 +53,7 @@ class ShowDetailActivity : AppCompatActivity() {
             }
             addToCartBtn!!.setOnClickListener {
                 `object`!!.numberInCart = numberOrder
-                managementCart!!.insertFood(`object`)
+                managementCart!!.insertFood(`object`!!)
             }
         }
 

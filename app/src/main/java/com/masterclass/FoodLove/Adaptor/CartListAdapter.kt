@@ -1,5 +1,6 @@
 package com.masterclass.FoodLove.Adaptor
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -32,7 +33,7 @@ class CartListAdapter(
         return ViewHolder(inflate)
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, @SuppressLint("RecyclerView") position: Int) {
         holder.title.text = foodDomains.get(position).title
         holder.feeEachItem.text = foodDomains.get(position).fee.toString()
         holder.totalEachItem.text =

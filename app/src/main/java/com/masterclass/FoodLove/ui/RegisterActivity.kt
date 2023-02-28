@@ -4,8 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
-import com.example.masterclass.MainActivity
-import com.example.masterclass.R
+import com.masterclass.FoodLove.Activity.MainActivity
+import com.masterclass.FoodLove.R
 import com.google.android.material.button.MaterialButton
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.FirebaseAuthUserCollisionException
