@@ -7,17 +7,27 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.button.MaterialButton
 import com.masterclass.FoodLove.Adaptor.CategoryAdaptator
 import com.masterclass.FoodLove.Adaptor.PopularAdaptator
 import com.masterclass.FoodLove.Domain.CategoryDomain
 import com.masterclass.FoodLove.Domain.FoodDomain
 import com.masterclass.FoodLove.R
+import com.masterclass.FoodLove.ui.AuthRepository
+import com.masterclass.FoodLove.ui.LoginActivity
+import com.google.firebase.auth.FirebaseUser
 
 class MainActivity : AppCompatActivity() {
     private var adapter: RecyclerView.Adapter<*>? = null
     private var adapter2: RecyclerView.Adapter<*>? = null
     private var recyclerViewCategoryList: RecyclerView? = null
     private var recyclerViewPopularList: RecyclerView? = null
+
+    private lateinit var btnLogout: MaterialButton
+    private lateinit var btnAlftF4: MaterialButton
+    private var authRepository: AuthRepository = AuthRepository()
+    private var user: FirebaseUser? = authRepository.getCurrentUser()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
