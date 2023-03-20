@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "653123511285",
+    "firebase_url": "https://masterclass-da-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "masterclass-da",
+    "storage_bucket": "masterclass-da.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:653123511285:android:c69a77049f6a5f6ca736bc",
+        "android_client_info": {
+          "package_name": "com.example.masterclass"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "653123511285-ghe4lvdctu26jihbfl9bc7o2qluf158p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBUo-N1JAMAAWF4oV8iUhVbm31i6I7W4hc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "653123511285-ghe4lvdctu26jihbfl9bc7o2qluf158p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:653123511285:android:ea2a585557cab16aa736bc",
+        "android_client_info": {
+          "package_name": "com.masterclass.FoodLove"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "653123511285-ghe4lvdctu26jihbfl9bc7o2qluf158p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBUo-N1JAMAAWF4oV8iUhVbm31i6I7W4hc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "653123511285-ghe4lvdctu26jihbfl9bc7o2qluf158p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
